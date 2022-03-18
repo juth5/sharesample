@@ -8,8 +8,9 @@
     let $input = document.getElementById('input');
     let $button = document.getElementById('button');
     let $ul = document.getElementById('ul');
+    $input.focus();
 
-    collection.get().then(snapshot => {
+    collection.orderBy('created_at', 'desc').get().then(snapshot => {
       snapshot.forEach(doc => {
         let list = document.createElement('li');
         let div = document.createElement('div');
@@ -22,11 +23,19 @@
       });
     });
 
+    let randomEmoji = () => {
+      let emojiArray = ['✨','👟','🏃‍♀️','🏃‍♂️','🏋️‍♂️','🚴‍♂️','🧘‍♂️','👍','😄','✌️','🎧'];
+      let num = Math.floor(Math.random() * emojiArray.length);
+      return emojiArray[num];
+    };
+
     $button.addEventListener('click', async() => {
+      let emoji = randomEmoji();
+      if ($input.value === '') return ;
       let time = new Date();
       time = time.getTime();
       await collection.add({
-        message: $input.value,
+        message: $input.value + emoji,
         created_at: time,
       });
       location.reload();
