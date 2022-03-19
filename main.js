@@ -7,6 +7,7 @@
     const collection = db.collection('message');
     let $input = document.getElementById('input');
     let $button = document.getElementById('button');
+    let $authBtn = document.getElementById('authbtn');
     let $ul = document.getElementById('ul');
     $input.focus();
 

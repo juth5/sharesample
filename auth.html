@@ -7,7 +7,6 @@
   <link rel="icon" href="./img/hurdle.png">
   <link rel="stylesheet" href="./main.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
@@ -29,28 +28,36 @@
   </script>
 </head>
 <body>
-  <div class='wrap'>
-    <img src="./img/bg1.jpg" alt="" class='bg-img'>
-    <div class='bg-black'></div>
-    <div class='info'>
-      <div class='header'>
-        <div class='logo'>ShareTraining</div>
-        <a href="./auth.html">
-          <button class='login-button'>login</button>
-        </a>
-      </div>
-      <div class='title'>今日これから行うトレーニング内容を書いて共有しよう！！</div>
-      <div class='wrap-1'>
-        <textarea cols="30" rows="10" id='input' class='input'></textarea>
-      </div>
-      <div class='wrap-2'>
-        <button id='button'>トレーニング内容を送る</button>
-      </div>
-      <div class='ul-wrap'>
-        <ul id='ul'></ul>
-      </div>
+  <div>ログインすると名前つきで投稿できます</div>
+  <div>ログインしなくても投稿はできます</div>
+  <a href="./index.html">
+    <button>トップへ戻る</button>
+  </a>
+  <div id='signIn'>
+    <div>アカウント登録をする</div>
+    <div>
+      <div>email</div>
+      <input type="text" id='emailSignIn'>
     </div>
+    <div>
+      <div>password</div>
+      <input type="text" id='passwordSignIn'>
+    </div>
+    <button id='signInButton'>アカウント登録する</button>
   </div>
-  <script src='./main.js'></script>
+  <div id='logIn'>
+    <div>ログインをする</div>
+    <div>
+      <div>email</div>
+      <input type="text" id='emailLogin'>
+    </div>
+    <div>
+      <div>password</div>
+      <input type="text" id='passwordLogin'>
+    </div>
+    <button id='loginButton'>ログインする</button>
+  </div>
+
+  <script src='./auth.js'></script>
 </body>
 </html>
