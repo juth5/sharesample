@@ -6,6 +6,7 @@
   <title>share-sports</title>
   <link rel="icon" href="./img/hurdle.png">
   <link rel="stylesheet" href="./main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
@@ -32,13 +33,15 @@
     <div class='bg-black'></div>
     <div class='info'>
       <div class='title'>今日これから行うトレーニング内容を書いて共有しよう！！</div>
-      <div>
+      <div class='wrap-1'>
         <textarea cols="30" rows="10" id='input' class='input'></textarea>
-        <div>
-          <button id='button'>トレーニング内容を送る</button>
-        </div>
       </div>
-      <ul id='ul'></ul>
+      <div class='wrap-2'>
+        <button id='button'>トレーニング内容を送る</button>
+      </div>
+      <div class='ul-wrap'>
+        <ul id='ul'></ul>
+      </div>
     </div>
   </div>
   <script src='./main.js'></script>
