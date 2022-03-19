@@ -39,7 +39,7 @@ body {
 .title {
   font-size: 20px;
   color: white;
-  padding: 24px;
+  padding: 12px;
   text-align: center;
   font-family: 'Noto Sans JP', sans-serif;
 }
@@ -58,7 +58,7 @@ body {
 .input {
   width: 450px;
   max-width: 80%;
-  height: 120px;
+  height: 80px;
   font-size: 12px;
   margin-bottom: 16px;
   padding: 10px;
