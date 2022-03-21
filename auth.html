@@ -28,47 +28,58 @@
   </script>
 </head>
 <body>
-  <div>ログインすると名前つきで投稿できます</div>
-  <div>ログインしなくても投稿はできます</div>
-  <a href="./index.html">
-    <button>トップへ戻る</button>
-  </a>
-  <div id='signIn'>
-    <div>アカウント登録をする</div>
-    <div>
-      <div>email</div>
-      <input type="text" id='emailSignIn'>
-    </div>
-    <div>
-      <div>password</div>
-      <input type="text" id='passwordSignIn'>
-    </div>
-    <button id='signInButton'>アカウント登録する</button>
-  </div>
-  <div id='logIn'>
-    <div>ログインをする</div>
-    <div>
-      <div>email</div>
-      <input type="text" id='emailLogin'>
-    </div>
-    <div>
-      <div>password</div>
-      <input type="text" id='passwordLogin'>
-    </div>
-    <button id='loginButton'>ログインする</button>
-  </div>
-  <button id='logout'>logout</button>
+  <div class='wrap'>
+    <img src="./img/tower.jpeg" alt="" class='bg-img'>
+    <div class='bg-black'></div>
+    <div class='info'>
+      <div class='attention'>
+        <div class='auth-text'>ログインしなくても投稿はできます。</div>
+        <div class='auth-text'>アカウント登録をしてログインすると名前つきで投稿できます。</div>
+        <div class='auth-logout'>
+          <a href="./index.html">
+            <button class='top-button'>トップへ戻る</button>
+          </a>
+          <div>
+            <button id='logout' class='top-button'>logout</button>
+          </div>  
+        </div>
+      </div>
+      <div id='signIn'>
+        <div class='auth-title'>アカウント登録をする</div>
+        <div>
+          <div class='auth-text'>email</div>
+          <input type="text" id='emailSignIn'>
+        </div>
+        <div>
+          <div class='auth-text'>password</div>
+          <input type="text" id='passwordSignIn'>
+        </div>
+        <button id='signInButton' class='top-button'>アカウント登録する</button>
+      </div>
 
-  <div>
-    <div>
-      <div>ニックネーム</div>
-      <input type="text" id='userName'>
-    </div>
-    <div>
-      <button id='nameButton'>ニックネームを登録する</button>
+      <div id='logIn'>
+        <div class='auth-title'>ログインをする</div>
+        <div>
+          <div class='auth-text'>email</div>
+          <input type="text" id='emailLogin' type='email'>
+        </div>
+        <div>
+          <div class='auth-text'>password</div>
+          <input type="text" id='passwordLogin'>
+        </div>
+        <button id='loginButton' class='top-button'>ログインする</button>
+      </div>
+      <div>
+        <div>
+          <div class='auth-title'>ニックネームを登録する</div>
+          <input type="text" id='userName'>
+        </div>
+        <div>
+          <button id='nameButton' class='top-button'>ニックネームを登録する</button>
+        </div>
+      </div>
     </div>
   </div>
-  
   <script src='./auth.js'></script>
 </body>
 </html>
