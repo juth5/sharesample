@@ -34,7 +34,8 @@
     $loginButton.addEventListener('click', async() => {
       let email = $emailLogin.value;
       let password = $passwordLogin.value;
-      await auth.signInWithEmailAndPassword(email, password);
+      var result = await auth.signInWithEmailAndPassword(email, password);
+      console.log(result,'oooooooooo')
     });
 
     // ログアウトボタン
