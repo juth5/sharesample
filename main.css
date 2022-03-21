@@ -34,8 +34,8 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 16px;
+  padding-left: 16px;
 }
 
 .header {
@@ -86,8 +86,8 @@ body {
 
 .input {
   width: 450px;
-  max-width: 80%;
-  height: 48px;
+  max-width: 90%;
+  height: 20px;
   font-size: 16px;
   margin-bottom: 16px;
   padding: 10px;
@@ -103,15 +103,25 @@ body {
   cursor: pointer;
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 18px;
+  border-bottom: 5px solid #3300FF;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+#button:hover {
+  margin-top: 3px;
+  background: #0d6efd;
+  border-bottom: 2px solid #0d6efd;
 }
 
 #ul {
   list-style-type: none;
   height: 200px;
+  margin-left: -40px;
 }
 
 .ul-wrap {
   height: 100%;
+  overflow: hidden;
   overflow-y: scroll;
   max-width: 768px;
   width: 100%;
@@ -122,11 +132,12 @@ body {
 #ul > li {
   color: white;
   font-size: 18px;
+  word-break: break-all;;
 }
 
 #ul > div {
   font-size: 12px;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
   color: #CCC504;
 }
 
