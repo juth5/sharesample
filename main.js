@@ -21,7 +21,6 @@
         // userName = result.data().name;
       }
       getItem();
-
     });
 
     let getItem = async() => {

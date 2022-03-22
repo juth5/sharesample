@@ -150,8 +150,16 @@ body {
   margin-bottom: 36px;
 }
 
+.scroll-wrap {
+  overflow-y: scroll;
+}
+
 .attention {
   margin-bottom: 36px;
+}
+
+.hide {
+  display: none;
 }
 
 .auth-logout {
