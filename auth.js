@@ -15,6 +15,9 @@
     let $userName = document.getElementById('userName');
     let $nameButton = document.getElementById('nameButton');
 
+    // ニックネームの表示箇所
+    let $nickname = document.getElementById('nickname');
+
     let $signInButton = document.getElementById('signInButton');
     let $loginButton = document.getElementById('loginButton');
     
@@ -25,15 +28,20 @@
     let $signInStanBy = document.getElementById('signInStanBy');
     let $userNameWrap = document.getElementById('userNameWrap');
 
+    // sync
+    let $cover = document.getElementById('cover');
 
-    auth.onAuthStateChanged((user) => {
-      console.log(user,'uuuuuu');
+    auth.onAuthStateChanged(async(user) => {
       if(user){
         $signInStanBy.classList.add('hide');
         $logout.innerHTML = 'Logoutする';
+        let result = await db.collection('user').doc(user.uid).get();
+        let name = result.data().name;
+        $nickname.innerHTML = name;
       }
       else {
         $userNameWrap.classList.add('hide');
+        $nickname.innerHTML = '名無しさん';
       }
     });
 
@@ -51,8 +59,14 @@
       if ($emailSignIn.value === '' || $passwordSignIn.value === '') return ;
       let email = $emailSignIn.value;
       let password = $passwordSignIn.value;
-      await auth.createUserWithEmailAndPassword(email, password);
-      location.reload();
+      let result = await auth.createUserWithEmailAndPassword(email, password);
+      await db.collection('user').doc(result.user.uid).set({
+        name: '名無しさん',
+      });
+      $emailSignIn.value = '';
+      $passwordSignIn.value = '';
+
+      $userNameWrap.classList.add('show');
     });
 
     // サインインのボタン
@@ -62,17 +76,22 @@
       if (email === '' || password === '') return ;
       var result = await auth.signInWithEmailAndPassword(email, password);
       if (result.operationType === 'signIn') {
+        $emailLogin.value = '';
+        $passwordLogin.value = '';
         $logout.innerHTML = 'Logoutする';
+        $userNameWrap.classList.remove('hide');
+
       }
     });
 
     // ログアウトボタン
     $logout.addEventListener('click', async() => {
       await auth.signOut();
+      debugger;
       let result = await isLogin();
-      console.log(result,'aaaaaa')
       if(!result) {
         $signInStanBy.classList.remove('hide');
+        $userNameWrap.classList.remove('show');
         $logout.innerHTML = '未ログイン状態';
       }
     });
@@ -84,11 +103,23 @@
       await auth.onAuthStateChanged((user) => {
         name = user.uid;
       });
-      await db.collection('user').doc(name).set({
-        name: $userName.value,
-      });
-      $userName.value = '';
+      $cover.classList.add('show');
+      try {
+        await db.collection('user').doc(name).set({
+          name: $userName.value,
+        });
+      
+        let result = await db.collection('user').doc(name).get();
+        result = result.data().name;
+        $nickname.innerHTML = result;
+      }
+      catch {
+        console.log(e,'error');
+      }
+      finally {
+        $cover.classList.remove('show');
+        $userName.value = '';
+      }
     });
-
   }
 }

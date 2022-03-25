@@ -9,7 +9,29 @@ body {
   position: relative;
   overflow: hidden;
 }
-
+.cover {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: black;
+  opacity: 0.4;
+  z-index: 1;
+}
+.sync {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  color: white;
+  font-size: 20px;
+}
 .bg-img {
   width: 100%;
   height: 100%;
@@ -150,15 +172,33 @@ body {
   margin-bottom: 36px;
 }
 
+#nickname {
+  color: #CCC504;
+  font-size: 20px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.nickname {
+  color: white;
+  margin-bottom: 18px;
+
+}
+
 .scroll-wrap {
   overflow-y: scroll;
 }
 
 .attention {
-  margin-bottom: 36px;
+  margin-bottom: 24px;
+}
+.show {
+  display: block !important;
+}
+.hide {
+  display: none;
 }
 
-.hide {
+#cover {
   display: none;
 }
 

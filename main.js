@@ -17,16 +17,11 @@
     auth.onAuthStateChanged(async(user) => {
       if(user) {
         isUser = user.uid;
-        // var result = await db.collection('user').doc(isUser).get();
-        // userName = result.data().name;
       }
       getItem();
     });
 
     let getItem = async() => {
-      // var result = await db.collection('user').doc(isUser).get();
-      // let userName = result.data().name;
-      // console.log(result.data().name,'ccccccccccc')
       await collection.orderBy('created_at', 'desc').get().then(snapshot => {
         snapshot.forEach(doc => {
           let list = document.createElement('li');
@@ -42,21 +37,6 @@
         });
       });
     };
-    // getItem();
-    
-    // データ取得の中身
-    // collection.orderBy('created_at', 'desc').get().then(snapshot => {
-    //   snapshot.forEach(doc => {
-    //     let list = document.createElement('li');
-    //     let div = document.createElement('div');
-    //     list.innerHTML = doc.data().message;
-    //     let time = doc.data().created_at;
-    //     time = dayjs(time).format('YYYY/MM/DD');
-    //     div.innerHTML = time + userName;
-    //     $ul.appendChild(list);
-    //     $ul.appendChild(div);
-    //   });
-    // });
 
     let randomEmoji = () => {
       let emojiArray = ['✨','👟','🏃‍♀️','🏃‍♂️','🏋️‍♂️','🚴‍♂️','🧘‍♂️','👍','😄','✌️','🎧'];
